@@ -1,5 +1,12 @@
-function greet(name) {
-  return `Hello ${name}`;
-}
+const crypto = require("crypto");
 
-module.exports = { greet };
+let id = null;
+
+module.exports.genId = () => {
+  if (!id) {
+    id = crypto.randomBytes(20);
+    Buffer.from("-BT0001-").copy(id, 0);
+  }
+
+  return id;
+};

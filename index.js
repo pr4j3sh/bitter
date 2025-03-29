@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 
-const { greet } = require("./src/utils");
+const parser = require("./src/parser");
+const download = require("./src/download");
 
-console.log(greet("frames"));
+const torrent = parser.open("file.torrent");
 
-module.exports = {
-  greet,
-};
+download(torrent);

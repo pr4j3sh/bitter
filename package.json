@@ -39,5 +39,9 @@
   "devDependencies": {
     "esbuild": "^0.24.0",
     "nodemon": "^3.1.7"
+  },
+  "dependencies": {
+    "bencode": "^2.0.3",
+    "bignum": "^0.13.1"
   }
 }
