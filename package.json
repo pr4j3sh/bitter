@@ -1,7 +1,7 @@
 {
   "name": "@pr4j3sh/bitter",
   "description": "bittorrent client",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "index.js",
   "bin": {
     "bitter": "index.js"
@@ -12,9 +12,6 @@
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
-  "files": [
-    "src"
-  ],
   "keywords": [
     "bittorrent",
     "magnet",
