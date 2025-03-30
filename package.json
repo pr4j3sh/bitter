@@ -1,19 +1,14 @@
 {
   "name": "@pr4j3sh/bitter",
   "description": "bittorrent client",
-  "version": "1.0.0",
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
-  "exports": {
-    "require": "dist/index.cjs",
-    "import": "dist/index.mjs"
-  },
+  "version": "1.0.1",
+  "main": "index.js",
   "bin": {
-    "bitter": "dist/index.cjs"
+    "bitter": "index.js"
   },
   "scripts": {
     "test": "echo \"No test specified\" && exit 0",
-    "build": "node esbuild.config.js",
+    "build": "echo \"No build available\" ",
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
@@ -41,7 +36,6 @@
     "url": "https://github.com/pr4j3sh/bitter/issues"
   },
   "devDependencies": {
-    "esbuild": "^0.24.0",
     "nodemon": "^3.1.7"
   },
   "dependencies": {
