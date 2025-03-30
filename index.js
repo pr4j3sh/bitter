@@ -5,6 +5,11 @@ const download = require("./src/download");
 const Magnet2torrent = require("magnet2torrent-js");
 
 const magnet = process.argv[2];
+if (!magnet) {
+  console.log("usage:");
+  console.log('    bitter ["magnet_link"]');
+  process.exit(1);
+}
 
 const m2t = new Magnet2torrent({ timeout: 60 });
 
