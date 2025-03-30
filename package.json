@@ -1,6 +1,6 @@
 {
-  "name": "javascript",
-  "description": "NPM package template.",
+  "name": "@pr4j3sh/bitter",
+  "description": "bittorrent client",
   "version": "1.0.0",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
@@ -9,7 +9,7 @@
     "import": "dist/index.mjs"
   },
   "bin": {
-    "javascript": "dist/index.cjs"
+    "bitter": "dist/index.cjs"
   },
   "scripts": {
     "test": "echo \"No test specified\" && exit 0",
@@ -21,6 +21,10 @@
     "dist"
   ],
   "keywords": [
+    "bittorrent",
+    "magnet",
+    "torrent",
+    "bittorrent-client",
     "npm",
     "javascript",
     "commonjs",
@@ -28,13 +32,13 @@
   ],
   "author": "Prajesh Pratap Singh <prajesh.eleven118@gmail.com> (https://pr4j3sh.github.io/pr4j3sh/)",
   "license": "MIT",
-  "homepage": "https://github.com/pr4j3sh/javascript#readme",
+  "homepage": "https://github.com/pr4j3sh/bitter#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pr4j3sh/javascript.git"
+    "url": "git+https://github.com/pr4j3sh/bitter.git"
   },
   "bugs": {
-    "url": "https://github.com/pr4j3sh/javascript/issues"
+    "url": "https://github.com/pr4j3sh/bitter/issues"
   },
   "devDependencies": {
     "esbuild": "^0.24.0",
@@ -42,6 +46,7 @@
   },
   "dependencies": {
     "bencode": "^2.0.3",
-    "bignum": "^0.13.1"
+    "bignum": "^0.13.1",
+    "magnet2torrent-js": "^1.4.0"
   }
 }

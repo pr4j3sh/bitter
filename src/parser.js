@@ -1,10 +1,12 @@
-const fs = require("fs");
 const bencode = require("bencode");
 const crypto = require("crypto");
 const bignum = require("bignum");
 
-module.exports.open = (path) => {
-  return bencode.decode(fs.readFileSync(path));
+module.exports.decode = (data) => {
+  const torrent = bencode.decode(data);
+  if (!torrent.announce)
+    torrent.announce = "udp://tracker.opentrackr.org:1337/announce";
+  return torrent;
 };
 
 module.exports.infoHash = (torrent) => {

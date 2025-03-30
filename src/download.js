@@ -17,11 +17,7 @@ module.exports = (torrent, path) => {
 
 function download(peer, torrent, pieces, file) {
   const socket = new net.Socket();
-  socket.on("error", () => {
-    console.error(
-      `[!] ${peer.ip} refused to connect, retrying with another peer`,
-    );
-  });
+  socket.on("error", () => {});
   socket.connect(peer.port, peer.ip, () => {
     socket.write(message.buildHandshake(torrent));
   });

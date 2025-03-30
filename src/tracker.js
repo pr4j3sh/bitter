@@ -11,7 +11,7 @@ module.exports.getPeers = (torrent, callback) => {
   udpSend(socket, buildConnReq(), url);
 
   socket.on("error", () => {
-    console.error(`[!] failed to connect`);
+    console.error("[!] failed to connect");
   });
   socket.on("message", (res) => {
     if (resType(res) === "connect") {

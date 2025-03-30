@@ -2,8 +2,20 @@
 
 const parser = require("./src/parser");
 const download = require("./src/download");
+const Magnet2torrent = require("magnet2torrent-js");
 
-const torrent = parser.open("file.torrent");
-console.log(`[*] torrent: ${torrent.info.name}`);
+const magnet = process.argv[2];
 
-download(torrent, torrent.info.name);
+const m2t = new Magnet2torrent({ timeout: 60 });
+
+m2t
+  .getTorrent(magnet)
+  .then((tor) => {
+    const torrent = parser.decode(tor.toTorrentFile());
+    console.log(`[*] torrent: ${torrent.info.name}`);
+
+    download(torrent, torrent.info.name);
+  })
+  .catch((e) => {
+    console.error("[!] invalid magnet", e);
+  });
