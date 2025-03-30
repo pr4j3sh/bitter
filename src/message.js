@@ -1,5 +1,6 @@
 const { Buffer } = require("node:buffer");
 const parser = require("./parser");
+const utils = require("./utils");
 
 module.exports.buildHandshake = (torrent) => {
   const buf = Buffer.alloc(68);
@@ -8,7 +9,7 @@ module.exports.buildHandshake = (torrent) => {
   buf.writeUInt32BE(0, 20);
   buf.writeUInt32BE(0, 24);
   parser.infoHash(torrent).copy(buf, 28);
-  buf.write(util.genId());
+  utils.genId().copy(buf, 48);
   return buf;
 };
 
@@ -51,8 +52,8 @@ module.exports.buildHave = (payload) => {
 };
 
 module.exports.buildBitfield = (bitfield) => {
-  const buf = Buffer.alloc(14);
-  buf.writeUInt32BE(bitfield.length + 1, 0);
+  const buf = Buffer.alloc(bitfield.length + 1 + 4);
+  buf.writeUInt32BE(payload.length + 1, 0);
   buf.writeUInt8(5, 4);
   bitfield.copy(buf, 5);
   return buf;
@@ -70,7 +71,7 @@ module.exports.buildRequest = (payload) => {
 
 module.exports.buildPiece = (payload) => {
   const buf = Buffer.alloc(payload.block.length + 13);
-  buf.writeUInt32BE(payload.length + 9, 0);
+  buf.writeUInt32BE(payload.block.length + 9, 0);
   buf.writeUInt8(7, 4);
   buf.writeUInt32BE(payload.index, 5);
   buf.writeUInt32BE(payload.begin, 9);

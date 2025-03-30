@@ -1,4 +1,5 @@
 const crypto = require("crypto");
+const { Buffer } = require("node:buffer");
 
 let id = null;
 
